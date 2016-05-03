@@ -1,0 +1,14 @@
+form {
+  display: inline-block;
+}
+
+.form {
+  text-align: center;
+}
+
+.form-input{
+  padding: 0 1em;
+  display: block;
+  margin-top: .8em;
+  min-width: 300px;
+}
