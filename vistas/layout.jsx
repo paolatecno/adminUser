@@ -1,16 +1,28 @@
 import React from 'react'
+import Header from './header'
+import Footer from './footer'
+if(process.env.BROWSER){
+  require('./styles/custom.css')
+}
+
 
 class Layout extends React.Component {
+
   render(){
     return (
       <html>
         <head>
-          <meta charSet="utf-8" />
+          <meta charSet='utf-8' />
+          <link rel="stylesheet" href="/styles/main.css" />
           <title>{this.props.title}</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        </head>
+      </head>
         <body>
-          {this.props.children}
+          <div>
+            <Header/>
+            {this.props.children}
+            <Footer/>
+          </div>
+          <script src='/bundle.js'></script>
         </body>
       </html>
     )
