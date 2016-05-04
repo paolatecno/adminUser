@@ -76,7 +76,35 @@ controladorUsuario.get("/modificar/:id", (req,res) =>{
   const usuarioId = req.params.id
   Usuario.obtenerUsuario(usuarioId)
     .then( usuario => {
-      res.send(usuario)
+      res.render(`/usuarios${req.url}`,{
+        title:"Modificar usuario",
+        _id: usuario._id,
+        nombre: usuario.nombre,
+        apellido: usuario.apellido,
+        usuario: usuario.usuario,
+        email: usuario.email
+      })
+    })
+    .catch( error => {
+      res.send({error:error})
+    })
+})
+
+controladorUsuario.post("/modificar/:id", (req,res) =>{
+  const usuario = {
+    id: req.params.id,
+    usuario: req.body.usuario,
+    email: req.body.email,
+    nombre: req.body.nombre,
+    apellido: req.body.apellido
+  }
+
+  Usuario.modificarUsuario(usuario)
+    .then( usuario => {
+      res.redirect("/usuarios/listar-usuarios")
+    })
+    .catch( error => {
+      res.send({error:error})
     })
 })
 

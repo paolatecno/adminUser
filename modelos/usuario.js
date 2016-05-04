@@ -47,8 +47,9 @@ UsuarioSchema.statics.obtenerUsuario = function(usuarioId){
     this.findOne({_id:usuarioId}, (error,usuario) =>{
       if(error)
         reject(error)
-      else
+      else{
         resolve(usuario)
+      }
     })
   })
 }

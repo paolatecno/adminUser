@@ -24,15 +24,15 @@ class ListaUsuarios extends React.Component {
                 return (
                   <tr key={index}>
                     <td>
-                      <Link href={`/usuarios/${usuario._id}`}>
+                      <Link to={`/usuarios/modificar/${usuario._id}`}>
                         <img src='/imagen/icon_user.png' width="32" className="img-circle" />
                       </Link>
                     </td>
                     <td title="" className="text-truncate">{usuario.nombre} {usuario.apellido}</td>
                     <td title="jon@auth0.com" className="text-truncate">{usuario.usuario}</td>
                     <td>{usuario.email}</td>
-                    <td>{usuario.grupo}</td>
-                    <td className="text-truncate"><Link href={`/usuarios/${usuario._id}`} className="btn btn-success">Modificar</Link></td>
+                    <td></td>
+                    <td className="text-truncate"><Link to={`/usuarios/modificar/${usuario._id}`} className="btn btn-success">Modificar</Link></td>
                   </tr>
                 )
               })

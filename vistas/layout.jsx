@@ -20,7 +20,7 @@ class Layout extends React.Component {
           <div>
             <Header/>
             {this.props.children}
-            <Footer/>
+            
           </div>
           <script src='/bundle.js'></script>
         </body>
